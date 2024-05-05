@@ -27,17 +27,22 @@ final router = GoRouter(
         GoRoute(
           path: '/',
           parentNavigatorKey: _shellNavigatorKey,
-          pageBuilder: (context, state) => NoTransitionPage(child: const HomeScreen()),
-        ),
-        GoRoute(
-          path: '/course',
-          parentNavigatorKey: _shellNavigatorKey,
-            pageBuilder: (context, state) => NoTransitionPage(child: const CourseScreen())
+          pageBuilder: (context, state) => NoTransitionPage(child: HomeScreen()),
         ),
         GoRoute(
           path: '/settings',
           parentNavigatorKey: _shellNavigatorKey,
             pageBuilder: (context, state) => NoTransitionPage(child: const SettingsScreen())
+        ),
+        GoRoute(
+          path: '/course/:courseId',
+          parentNavigatorKey: _shellNavigatorKey,
+          pageBuilder: (context, state) {
+            final courseId = int.parse(state.pathParameters['courseId']!);
+            return NoTransitionPage(
+              child: CourseScreen(courseId: courseId),
+            );
+          },
         ),
       ],
     )

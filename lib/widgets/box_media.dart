@@ -29,7 +29,7 @@ class _BoxMediaState extends State<BoxMedia> {
       builder: (context, constraints) {
         final isSmallSize = widget.size == BoxMediaSize.small;
         final boxWidth = isSmallSize
-            ? constraints.maxWidth / 2 - 16
+            ? constraints.maxWidth / 3 - 16
             : constraints.maxWidth - 32;
         final boxHeight = isSmallSize ? boxWidth : boxWidth * 0.5625; // 16:9 aspect ratio
 
